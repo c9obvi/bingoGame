@@ -8,12 +8,20 @@ body {
     justify-content: center;
     align-items: flex-start;
 }
+body, html {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* Other styles remain unchanged */
 
 .container {
     width: 100%;
-    max-width: 600px; /* adjust as needed */
+    max-width: 600px; /* Adjust as needed */
     margin: auto;
-    padding-top: 60px; /* space for fixed header */
+    padding-top: 60px; /* Space for fixed header */
+    width: calc(100% - 20px); /* Full width minus padding */
+
 }
 
 .header {
@@ -27,24 +35,42 @@ body {
     z-index: 1;
 }
 
+.buttons {
+    text-align: center;
+    position: fixed;
+    top: 80px; /* Adjust as needed */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+}
+
 .buttons button {
-    margin: 35px;
-    padding: 10px 20px;
+    margin: 5px;
+    padding: 35px;
     font-size: 16px;
     cursor: pointer;
+    border-radius: 20px; /* Rounded corners */
+    background-color: #fff; /* White background for modern look */
+    color: black; /* Text color */
+    border: none; /* Remove default border */
 }
 
 .numbers {
-    font-size: 80px;
-    overflow-y: auto;
-    padding: 10px;
-    height: calc(100vh - 225px); /* Adjust height based on header and padding */
+    font-size: 100px;
+    overflow-x: auto; /* Enable horizontal scrolling */
+    white-space: nowrap; /* Keep numbers in one line */
+    margin-top: 100px; /* Adjust as needed */
     box-sizing: border-box;
+    height: 200px; /* Adjust as needed */
+    /* padding-left and padding-right will be set in JavaScript */
 }
+
+
+
 
 /* Scrollbar styling */
 ::-webkit-scrollbar {
-    width: 10px;
+    height: 10px; /* Adjust scrollbar height */
 }
 
 ::-webkit-scrollbar-thumb {
