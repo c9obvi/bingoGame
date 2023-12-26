@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bingo Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Bingo Game</h1>
+        </div>
+        <div class="buttons">
+            <button id="rollButton">Roll Number</button>
+            <button id="resetButton">Reset Game</button>
+        </div>
+        <div class="numbers" id="numbers"></div>
+    </div>
+
+    <script>
+        let pastNumbers = [];
+
+        document.getElementById('rollButton').addEventListener('click', rollNumber);
+        document.getElementById('resetButton').addEventListener('click', resetGame);
+
+        function rollNumber() {
+            let newNumber;
+            do {
+                newNumber = Math.floor(Math.random() * 75) + 1;
+            } while (pastNumbers.includes(newNumber));
+
+            pastNumbers.push(newNumber);
+            displayNumbers();
+        }
+
+        function resetGame() {
+            pastNumbers = [];
+            displayNumbers();
+        }
+
+        function displayNumbers() {
+            document.getElementById('numbers').innerText = pastNumbers.join(', ');
+        }
+    </script>
+</body>
+</html>
